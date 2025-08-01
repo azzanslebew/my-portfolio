@@ -66,9 +66,9 @@ This project is open-source and available under the [MIT License](LICENSE). Feel
 
 ## Contact 📧
 - **Name**: Azzan Isham Alawiy  
-- **Email**: [Add your email here]  
-- **LinkedIn**: [Add your LinkedIn profile]  
-- **GitHub**: [https://github.com/your-username](https://github.com/your-username)  
+- **Email**: azzanishamkds@gmail.com  
+- **LinkedIn**: www.linkedin.com/in/azzan-isham-480614258  
+- **GitHub**: https://github.com/azzanslebew
 
 Thanks for visiting my portfolio! 🚀 Let’s connect and build something amazing together! 🌟
 
