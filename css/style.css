@@ -1,0 +1,349 @@
+/* === THEME VARIABLES === */
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f1f5f9;
+    /* slate-100 */
+    --bg-card: #ffffff;
+    --bg-header: rgba(255, 255, 255, 0.7);
+    --bg-mobile-menu: #ffffff;
+    --bg-skill-item: #ffffff;
+    --bg-message-feed: #f1f5f9;
+    /* slate-100 */
+    --bg-message-bubble: #ffffff;
+    --bg-modal: #ffffff;
+    --text-primary: #1e293b;
+    /* slate-800 */
+    --text-secondary: #475569;
+    /* slate-600 */
+    --text-muted: #64748b;
+    /* slate-500 */
+    --border-color: #cbd5e1;
+    /* slate-300 */
+    --hover-bg-secondary: #e2e8f0;
+    /* slate-200 */
+    --skill-icon-bg: #e0f2fe;
+    /* blue-100 */
+    --skill-icon-color: #3b82f6;
+    /* blue-500 */
+}
+
+html.dark {
+    --bg-primary: #0f172a;
+    /* slate-900 */
+    --bg-secondary: #334155;
+    /* slate-700 */
+    --bg-card: #1e293b;
+    /* slate-800 */
+    --bg-header: rgba(15, 23, 42, 0.7);
+    --bg-mobile-menu: #1e293b;
+    /* slate-800 */
+    --bg-skill-item: #334155;
+    /* slate-700 */
+    --bg-message-feed: #334155;
+    /* slate-700 */
+    --bg-message-bubble: #475569;
+    /* slate-600 */
+    --bg-modal: #1e293b;
+    /* slate-800 */
+    --text-primary: #e2e8f0;
+    /* slate-200 */
+    --text-secondary: #94a3b8;
+    /* slate-400 */
+    --text-muted: #64748b;
+    /* slate-500 */
+    --border-color: #475569;
+    /* slate-600 */
+    --hover-bg-secondary: #334155;
+    /* slate-700 */
+    --skill-icon-bg: #1e3a8a;
+    /* blue-900 */
+    --skill-icon-color: #60a5fa;
+    /* blue-400 */
+}
+
+/* === APPLYING VARIABLES === */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: "Exo", sans-serif;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0 auto;
+    /* Memastikan body terpusat */
+}
+
+/* Kunci latar belakang saat modal aktif */
+body.modal-active {
+    overflow: hidden;
+    /* Mencegah scroll horizontal dan vertikal */
+    position: fixed;
+    /* Mengunci posisi body */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    /* Pastikan posisi tetap di atas */
+    left: 0;
+    /* Pastikan posisi tetap di kiri */
+}
+
+/* Reset viewport setelah modal ditutup */
+body:not(.modal-active) {
+    position: static;
+    /* Kembalikan ke posisi default */
+    overflow-x: hidden;
+    /* Tetap mencegah scroll horizontal */
+    width: auto;
+    /* Kembalikan lebar default */
+    height: auto;
+    /* Kembalikan tinggi default */
+}
+
+.header-bg {
+    background-color: var(--bg-header);
+}
+
+.section-title {
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(135deg, #3b82f6, #a855f7);
+    border-radius: 2px;
+    transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.section-title:hover::after {
+    width: 100px;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #3b82f6, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Pastikan container selalu terpusat dan tidak overflow */
+.container {
+    max-width: 100%;
+    /* Mencegah container melebihi lebar layar */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    /* Sesuaikan dengan Tailwind px-6 */
+    padding-right: 1.5rem;
+}
+
+/* Pastikan main terpusat */
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Pastikan grid di dalam section terpusat */
+section .grid {
+    width: 100%;
+    max-width: 100%;
+    /* Mencegah grid melebihi lebar container */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Batasi lebar gambar agar tidak menyebabkan overflow */
+img {
+    max-width: 100%;
+    /* Pastikan gambar tidak melebihi container */
+    height: auto;
+}
+
+/* Perbaikan tampilan mobile (hanya sesuaikan yang diperlukan) */
+@media (max-width: 768px) {
+    .portfolio-card {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Tidak mengubah container padding, tetap pakai asli */
+    /* Tidak mengubah #name-modal-content, kembali ke asli */
+}
+
+/* Tambahan untuk #home agar responsif */
+#home img {
+    max-width: 100%;
+    /* Pastikan gambar tidak melebihi grid */
+    height: auto;
+    object-fit: cover;
+    /* Mengatur gambar agar sesuai container */
+}
+
+.mobile-menu-bg {
+    background-color: var(--bg-mobile-menu);
+    text-align: center;
+}
+
+.nav-link,
+.mobile-nav-link {
+    color: var(--text-primary);
+    border-radius: 10px;
+}
+
+.nav-link:hover,
+.mobile-nav-link:hover {
+    color: #a855f7;
+    /* purple-500 */
+}
+
+.mobile-nav-link:hover {
+    background-color: var(--hover-bg-secondary);
+    border-radius: 10px;
+}
+
+.text-secondary {
+    color: var(--text-secondary);
+}
+
+.text-muted {
+    color: var(--text-muted);
+}
+
+.portfolio-card {
+    background-color: var(--bg-card);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(168, 85, 247, 0.2), 0 10px 10px -5px rgba(168, 85, 247, 0.1);
+}
+
+html.dark .portfolio-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.25), 0 10px 10px -5px rgba(99, 102, 241, 0.15);
+}
+
+.certificate-card {
+    background-color: var(--bg-card);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.certificate-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(168, 85, 247, 0.2), 0 10px 10px -5px rgba(168, 85, 247, 0.1);
+}
+
+html.dark .certificate-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.25), 0 10px 10px -5px rgba(99, 102, 241, 0.15);
+}
+
+.skill-item {
+    background-color: var(--bg-skill-item);
+    color: var(--text-primary);
+}
+
+.skill-icon-bg {
+    background-color: var(--skill-icon-bg);
+}
+
+.skill-icon-color {
+    color: var(--skill-icon-color);
+}
+
+.message-container {
+    background-color: var(--bg-card);
+}
+
+.message-feed-bg {
+    background-color: var(--bg-message-feed);
+}
+
+.message-bubble {
+    background-color: var(--bg-message-bubble);
+    color: var(--text-primary);
+}
+
+.form-label,
+.form-label-color {
+    color: var(--text-secondary);
+}
+
+.form-input {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.form-input:focus {
+    --tw-ring-color: #a855f7;
+    border-color: transparent;
+    box-shadow: 0 0 0 2px var(--tw-ring-color);
+}
+
+.modal-bg {
+    background-color: var(--bg-modal);
+}
+
+.hover-bg-secondary:hover {
+    background-color: var(--hover-bg-secondary);
+}
+
+/* === MODAL & OTHER STYLES === */
+.portfolio-card-inner {
+    transition: transform 0.4s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-card-inner img {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.portfolio-card-inner .p-6 {
+    flex-grow: 1;
+}
+
+.certificate-card-inner {
+    transition: transform 0.4s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.certificate-card-inner img {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.certificate-card-inner .p-6 {
+    flex-grow: 1;
+}
+
+#portfolio-modal.hidden,
+#name-modal.hidden {
+    display: none;
+}
+
+.footer-icon {
+    color: #94a3b8;
+    /* slate-400 */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-icon:hover {
+    color: #a855f7;
+    /* purple-400 */
+    transform: scale(1.1);
+}
