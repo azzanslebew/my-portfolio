@@ -7,74 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     gsap.registerPlugin(ScrollTrigger);
 
-    // === NAME MODAL ===
-    const nameModal = document.getElementById('name-modal');
-    const nameModalContent = document.getElementById('name-modal-content');
-    const nameModalOverlay = document.getElementById('name-modal-overlay');
-    const nameModalClose = document.getElementById('name-modal-close');
-    const nameForm = document.getElementById('name-form');
-    const userNameInput = document.getElementById('user-name-input');
-    const userNameSpan = document.getElementById('user-name');
+    // Get reference to the typing text element
     const typingText = document.getElementById('typing-text');
-
-    // Sembunyikan tombol close agar pengguna tahu tidak bisa diklik
-    if (nameModalClose) {
-        nameModalClose.style.display = 'none';
-    }
-
-    const showNameModal = () => {
-        document.body.classList.add('modal-active'); // Tambahkan kelas saat modal ditampilkan
-        nameModal.classList.remove('hidden');
-        gsap.to(nameModalContent, { scale: 1, opacity: 1, duration: 0.3, ease: 'power3.out' });
-    };
-
-    const closeNameModal = () => {
-        gsap.to(nameModalContent, {
-            scale: 0.95,
-            opacity: 0,
-            duration: 0.2,
-            ease: 'power3.in',
-            onComplete: () => {
-                nameModal.classList.add('hidden');
-                document.body.classList.remove('modal-active'); // Hapus kelas saat modal ditutup
-                document.body.style.position = ''; // Reset posisi body
-                document.body.style.width = ''; // Reset lebar body
-                document.body.style.height = ''; // Reset tinggi body
-                // Reset viewport untuk mencegah zoom
-                document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
-                window.scrollTo(0, 0); // Kembali ke posisi atas
-                // Paksa refresh layout
-                setTimeout(() => {
-                    window.dispatchEvent(new Event('resize'));
-                }, 100);
-            }
-        });
-    };
-
-    // Selalu tampilkan modal saat halaman dimuat
-    showNameModal();
-
-    nameForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const name = userNameInput.value.trim();
-
-        // Hanya tutup modal jika nama tidak kosong
-        if (name) {
-            userNameSpan.textContent = name; // Update nama di H1
-            closeNameModal();
-            startTypingAnimation(); // Mulai animasi mengetik setelah nama disubmit
-        } else {
-            // Opsional: Beri feedback jika pengguna mencoba submit nama kosong
-            userNameInput.placeholder = "Nama tidak boleh kosong!";
-            gsap.from(nameModalContent, { x: 10, duration: 0.05, repeat: 5, yoyo: true, ease: 'power2.inOut' });
-        }
-    });
-
-    // --- PERUBAHAN DI BAWAH INI ---
-    // Event listener untuk tombol close dan overlay dinonaktifkan/dihapus
-    // nameModalClose.addEventListener('click', closeNameModal);
-    // nameModalOverlay.addEventListener('click', closeNameModal);
-
 
     // === TYPING ANIMATION ===
     const phrases = [
@@ -117,6 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
         typingText.textContent = '';
         type();
     };
+
+    // Start the typing animation immediately on page load
+    startTypingAnimation();
 
 
     // === DYNAMIC SKILLS ===
@@ -168,38 +105,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // === FORM SUBMISSION ===
     document.getElementById('message-form').addEventListener('submit', (e) => {
         e.preventDefault();
-        const name = document.getElementById('name').value;
-        const dob = document.getElementById('dob').value;
-        const gender = document.querySelector('input[name="gender"]:checked').value;
-        const message = document.getElementById('message-text').value;
-        const outputContainer = document.getElementById('message-output');
-        const placeholder = document.getElementById('placeholder-message');
+        const nameInput = document.getElementById('name');
+        const name = nameInput.value.trim();
 
-        if (placeholder) placeholder.style.display = 'none';
+        // Show a "thank you" alert
+        alert(`Terima kasih, ${name}! Pesan Anda telah berhasil dikirim.`);
 
-        const now = new Date();
-        const date = now.toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
-        const time = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', hour12: false });
-        const currentTime = `${date}, ${time}`;
-
-        const messageBubble = document.createElement('div');
-        messageBubble.className = 'message-bubble shadow-md rounded-lg p-4 space-y-1 text-sm';
-
-        messageBubble.innerHTML = `
-            <p><span class="font-semibold">Time:</span> ${currentTime}</p>
-            <p><span class="font-semibold">Name:</span> ${name}</p>
-            <p><span class="font-semibold">Date of Birth:</span> ${dob}</p>
-            <p><span class="font-semibold">Gender:</span> ${gender}</p>
-            <p><span class="font-semibold">Message:</span> ${message}</p>
-        `;
-
-        outputContainer.appendChild(messageBubble);
-        outputContainer.scrollTop = outputContainer.scrollHeight;
-        gsap.from(messageBubble, { y: 30, opacity: 0, duration: 0.5, ease: 'power3.out' });
+        // Reset the form fields
         e.target.reset();
     });
-
-    // === SISA KODE (TIDAK ADA PERUBAHAN) ===
 
     // === MOBILE MENU TOGGLE ===
     const menuToggle = document.getElementById('menu-toggle');
