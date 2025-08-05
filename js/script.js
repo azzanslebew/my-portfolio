@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // === INITIALIZATIONS ===
     AOS.init({
         duration: 800,
         easing: 'ease-out-cubic',
@@ -7,14 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     gsap.registerPlugin(ScrollTrigger);
 
-    // Get reference to the typing text element
     const typingText = document.getElementById('typing-text');
-
-    // === TYPING ANIMATION ===
     const phrases = [
-        'Welcome to My Portfolio',
-        'Crafting Innovative Digital Experiences',
-        'Explore My Creative Journey'
+        'Welcome to My Portfolio 🙋',
+        'Crafting Innovative Digital Experiences 🚀',
+        'Explore My Creative Journey 🎨',
+        'Building Amazing Web Solutions 💻',
+        'Passionate Full-Stack Developer ⚡'
     ];
     let currentPhraseIndex = 0;
     let currentCharIndex = 0;
@@ -52,12 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
         type();
     };
 
-    // Start the typing animation immediately on page load
     startTypingAnimation();
 
-
-    // === DYNAMIC SKILLS ===
     const skills = [
+        { name: "HTML", icon: `<img src="assets/icons/html.png" class="h-5 w-5" alt="HTML">` },
+        { name: "CSS", icon: `<img src="assets/icons/css.png" class="h-5 w-5" alt="CSS">` },
         { name: "JavaScript", icon: `<img src="assets/icons/js.png" class="h-5 w-5" alt="JavaScript">` },
         { name: "TypeScript", icon: `<img src="assets/icons/ts.png" class="h-5 w-5" alt="TypeScript">` },
         { name: "React", icon: `<img src="assets/icons/react.png" class="h-5 w-5" alt="React">` },
@@ -75,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
         skillsContainer.appendChild(skillElement);
     });
 
-    // === DARK MODE TOGGLE (VANILLA CSS METHOD) ===
     const themeToggle = document.getElementById('theme-toggle');
     const sunIcon = document.getElementById('theme-icon-sun');
     const moonIcon = document.getElementById('theme-icon-moon');
@@ -102,20 +98,14 @@ document.addEventListener('DOMContentLoaded', () => {
         setDarkMode(isDark);
     });
 
-    // === FORM SUBMISSION ===
     document.getElementById('message-form').addEventListener('submit', (e) => {
         e.preventDefault();
         const nameInput = document.getElementById('name');
         const name = nameInput.value.trim();
-
-        // Show a "thank you" alert
         alert(`Terima kasih, ${name}! Pesan Anda telah berhasil dikirim.`);
-
-        // Reset the form fields
         e.target.reset();
     });
 
-    // === MOBILE MENU TOGGLE ===
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     menuToggle.addEventListener('click', (e) => {
@@ -128,7 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // === BACK TO TOP BUTTON ===
     const backToTopButton = document.getElementById('back-to-top');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 300) {
@@ -141,7 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // === SMOOTH SCROLL ===
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -155,7 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // === PORTFOLIO MODAL ===
     const portfolioModal = document.getElementById('portfolio-modal');
     const modalContent = document.getElementById('modal-content');
     const modalOverlay = document.getElementById('modal-overlay');
@@ -189,7 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
     modalCloseBtn.addEventListener('click', closeModal);
     modalOverlay.addEventListener('click', closeModal);
 
-    // === GSAP ANIMATIONS ===
     gsap.from(".hero-element", { duration: 1, y: 50, opacity: 0, stagger: 0.2, ease: "power3.out" });
     gsap.to("#profile-image", {
         scale: 1.1,

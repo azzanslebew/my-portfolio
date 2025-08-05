@@ -2,63 +2,39 @@
 :root {
     --bg-primary: #ffffff;
     --bg-secondary: #f1f5f9;
-    /* slate-100 */
     --bg-card: #ffffff;
     --bg-header: rgba(255, 255, 255, 0.7);
     --bg-mobile-menu: #ffffff;
     --bg-skill-item: #ffffff;
     --bg-message-feed: #f1f5f9;
-    /* slate-100 */
     --bg-message-bubble: #ffffff;
     --bg-modal: #ffffff;
     --text-primary: #1e293b;
-    /* slate-800 */
     --text-secondary: #475569;
-    /* slate-600 */
     --text-muted: #64748b;
-    /* slate-500 */
     --border-color: #cbd5e1;
-    /* slate-300 */
     --hover-bg-secondary: #e2e8f0;
-    /* slate-200 */
     --skill-icon-bg: #e0f2fe;
-    /* blue-100 */
     --skill-icon-color: #3b82f6;
-    /* blue-500 */
 }
 
 html.dark {
     --bg-primary: #0f172a;
-    /* slate-900 */
     --bg-secondary: #334155;
-    /* slate-700 */
     --bg-card: #1e293b;
-    /* slate-800 */
     --bg-header: rgba(15, 23, 42, 0.7);
     --bg-mobile-menu: #1e293b;
-    /* slate-800 */
     --bg-skill-item: #334155;
-    /* slate-700 */
     --bg-message-feed: #334155;
-    /* slate-700 */
     --bg-message-bubble: #475569;
-    /* slate-600 */
     --bg-modal: #1e293b;
-    /* slate-800 */
     --text-primary: #e2e8f0;
-    /* slate-200 */
     --text-secondary: #94a3b8;
-    /* slate-400 */
     --text-muted: #64748b;
-    /* slate-500 */
     --border-color: #475569;
-    /* slate-600 */
     --hover-bg-secondary: #334155;
-    /* slate-700 */
     --skill-icon-bg: #1e3a8a;
-    /* blue-900 */
     --skill-icon-color: #60a5fa;
-    /* blue-400 */
 }
 
 /* === APPLYING VARIABLES === */
@@ -66,37 +42,23 @@ body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
     font-family: "Exo", sans-serif;
-    box-sizing: border-box;
-    overflow-x: hidden;
-    width: 100%;
-    margin: 0 auto;
-    /* Memastikan body terpusat */
+    /* Removed fixed box-sizing properties to avoid layout conflicts */
 }
 
-/* Kunci latar belakang saat modal aktif */
 body.modal-active {
     overflow: hidden;
-    /* Mencegah scroll horizontal dan vertikal */
     position: fixed;
-    /* Mengunci posisi body */
     width: 100%;
     height: 100%;
     top: 0;
-    /* Pastikan posisi tetap di atas */
     left: 0;
-    /* Pastikan posisi tetap di kiri */
 }
 
-/* Reset viewport setelah modal ditutup */
 body:not(.modal-active) {
     position: static;
-    /* Kembalikan ke posisi default */
     overflow-x: hidden;
-    /* Tetap mencegah scroll horizontal */
     width: auto;
-    /* Kembalikan lebar default */
     height: auto;
-    /* Kembalikan tinggi default */
 }
 
 .header-bg {
@@ -131,60 +93,34 @@ body:not(.modal-active) {
     -webkit-text-fill-color: transparent;
 }
 
-/* Pastikan container selalu terpusat dan tidak overflow */
-.container {
-    max-width: 100%;
-    /* Mencegah container melebihi lebar layar */
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1.5rem;
-    /* Sesuaikan dengan Tailwind px-6 */
-    padding-right: 1.5rem;
-}
-
-/* Pastikan main terpusat */
+/* Adjusted main tag to better handle section widths */
 main {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
 }
 
-/* Pastikan grid di dalam section terpusat */
 section .grid {
     width: 100%;
     max-width: 100%;
-    /* Mencegah grid melebihi lebar container */
     margin-left: auto;
     margin-right: auto;
 }
 
-/* Batasi lebar gambar agar tidak menyebabkan overflow */
 img {
     max-width: 100%;
-    /* Pastikan gambar tidak melebihi container */
     height: auto;
 }
 
-/* Perbaikan tampilan mobile (hanya sesuaikan yang diperlukan) */
 @media (max-width: 768px) {
     .portfolio-card {
         margin-left: auto;
         margin-right: auto;
     }
-
-    /* Tidak mengubah container padding, tetap pakai asli */
-    /* Tidak mengubah #name-modal-content, kembali ke asli */
 }
 
-/* Tambahan untuk #home agar responsif */
 #home img {
     max-width: 100%;
-    /* Pastikan gambar tidak melebihi grid */
     height: auto;
     object-fit: cover;
-    /* Mengatur gambar agar sesuai container */
 }
 
 .mobile-menu-bg {
@@ -201,7 +137,6 @@ img {
 .nav-link:hover,
 .mobile-nav-link:hover {
     color: #a855f7;
-    /* purple-500 */
 }
 
 .mobile-nav-link:hover {
@@ -338,12 +273,305 @@ html.dark .certificate-card:hover {
 
 .footer-icon {
     color: #94a3b8;
-    /* slate-400 */
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .footer-icon:hover {
     color: #a855f7;
-    /* purple-400 */
     transform: scale(1.1);
+}
+
+/* === FIX Typing Text === */
+#typing-text {
+    min-height: 1.5em;
+    display: inline-block;
+}
+
+/* === Floating Animation Ringan === */
+@keyframes floatAnimation {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+
+    50% {
+        transform: translateY(10px) translateX(5px);
+    }
+
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+}
+
+/* === Floating Icon Opacity Adjustment === */
+.floating-icon {
+    position: absolute;
+    z-index: 5;
+    opacity: 1;
+    /* Opasitas dinaikkan agar lebih terlihat di light mode */
+    animation: floatAnimation 7s ease-in-out infinite alternate;
+}
+
+html.dark .floating-icon {
+    opacity: 0.5;
+    /* Opasitas juga dinaikkan untuk dark mode */
+    mix-blend-mode: screen;
+}
+
+/* === Position Icons (Lebih Random) === */
+.icon-1 {
+    top: 15%;
+    left: 20%;
+    width: 4.5rem;
+    height: 4.5rem;
+    animation-duration: 9s;
+    animation-delay: -1s;
+}
+
+.icon-2 {
+    top: 25%;
+    right: 15%;
+    width: 3.8rem;
+    height: 3.8rem;
+    animation-duration: 11s;
+    animation-delay: -3s;
+}
+
+.icon-3 {
+    top: 35%;
+    left: 30%;
+    width: 3.2rem;
+    height: 3.2rem;
+    animation-duration: 8s;
+    animation-delay: -2s;
+}
+
+.icon-4 {
+    top: 45%;
+    right: 25%;
+    width: 4rem;
+    height: 4rem;
+    animation-duration: 10s;
+}
+
+.icon-5 {
+    top: 55%;
+    left: 10%;
+    width: 3.5rem;
+    height: 3.5rem;
+    animation-duration: 12s;
+    animation-delay: -4s;
+}
+
+.icon-6 {
+    top: 65%;
+    right: 20%;
+    width: 4.2rem;
+    height: 4.2rem;
+    animation-duration: 9s;
+    animation-delay: -2s;
+}
+
+.icon-7 {
+    top: 75%;
+    left: 25%;
+    width: 3.7rem;
+    height: 3.7rem;
+    animation-duration: 11s;
+    animation-delay: -1s;
+}
+
+.icon-8 {
+    top: 80%;
+    right: 10%;
+    width: 3.3rem;
+    height: 3.3rem;
+    animation-duration: 8s;
+    animation-delay: -3s;
+}
+
+.icon-9 {
+    top: 85%;
+    left: 15%;
+    width: 3.6rem;
+    height: 3.6rem;
+    animation-duration: 10s;
+}
+
+/* === Responsive (Ganti blok ini sepenuhnya) === */
+@media (max-width: 1024px) {
+
+    /* Aturan untuk tablet tetap sama */
+    .icon-1 {
+        top: 10%;
+        left: 15%;
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .icon-2 {
+        top: 20%;
+        right: 10%;
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+    .icon-3 {
+        top: 30%;
+        left: 25%;
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .icon-4 {
+        top: 40%;
+        right: 15%;
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+    .icon-5 {
+        top: 50%;
+        left: 5%;
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .icon-6 {
+        top: 60%;
+        right: 10%;
+        width: 3.8rem;
+        height: 3.8rem;
+    }
+
+    .icon-7 {
+        top: 70%;
+        left: 15%;
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+    .icon-8 {
+        top: 75%;
+        right: 5%;
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .icon-9 {
+        top: 80%;
+        left: 10%;
+        width: 3.2rem;
+        height: 3.2rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .floating-icon {
+        opacity: 0.15;
+    }
+
+    /* Menampilkan SEMUA ikon dengan posisi dan ukuran baru untuk mobile */
+    .icon-1 {
+        top: 15%;
+        left: 10%;
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .icon-2 {
+        top: 20%;
+        right: 8%;
+        width: 2.8rem;
+        height: 2.8rem;
+    }
+
+    .icon-3 {
+        top: 35%;
+        left: 15%;
+        width: 2.5rem;
+        height: 2.5rem;
+        display: block !important;
+    }
+
+    .icon-4 {
+        top: 40%;
+        right: 12%;
+        width: 2.9rem;
+        height: 2.9rem;
+        display: block !important;
+    }
+
+    .icon-5 {
+        top: 55%;
+        left: 5%;
+        width: 2.7rem;
+        height: 2.7rem;
+        display: block !important;
+    }
+
+    .icon-6 {
+        top: 60%;
+        right: 18%;
+        width: 3.1rem;
+        height: 3.1rem;
+        display: block !important;
+    }
+
+    .icon-7 {
+        top: 75%;
+        left: 20%;
+        width: 2.6rem;
+        height: 2.6rem;
+        display: block !important;
+    }
+
+    .icon-8 {
+        top: 80%;
+        right: 5%;
+        width: 2.8rem;
+        height: 2.8rem;
+    }
+
+    .icon-9 {
+        top: 85%;
+        left: 10%;
+        width: 2.8rem;
+        height: 2.8rem;
+    }
+}
+
+/* === Gradient Outline untuk Foto Profil === */
+.profile-image-wrapper::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    /* Posisikan di belakang gambar */
+
+    /* Atur ukuran outline (misal: 2px di setiap sisi) */
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+
+    border-radius: 9999px;
+    /* Opsional: untuk melembutkan sudut */
+
+    /* --- LIGHT MODE: Warna Gradien --- */
+    background: linear-gradient(135deg, #3b82f6, #a855f7);
+
+    /* --- Magic: Gunakan gambar sebagai MASK --- */
+    -webkit-mask-image: url('/assets/images/home-me.png');
+    mask-image: url('/assets/images/home-me.png');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+}
+
+/* === DARK MODE: Atur ulang warna outline === */
+html.dark .profile-image-wrapper::before {
+    /* Ganti gradien menjadi warna solid yang kontras di dark mode */
+    background: var(--text-primary);
 }
