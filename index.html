@@ -55,10 +55,9 @@
     </header>
 
     <main class="container mx-auto px-6 py-12 sm:px-8 lg:px-12">
-        <div class="relative">
+        <div class="relative overflow-x-hidden">
             <section id="home"
                 class="relative h-screen w-full flex flex-col items-center text-center overflow-hidden pt-20">
-
                 <div class="floating-icon icon-1"><img src="assets/icons/html.png" alt="HTML Icon"></div>
                 <div class="floating-icon icon-2"><img src="assets/icons/css.png" alt="CSS Icon"></div>
                 <div class="floating-icon icon-3"><img src="assets/icons/js.png" alt="JavaScript Icon"></div>
@@ -133,23 +132,23 @@
             </h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 sm:px-6 lg:px-8">
                 <div class="portfolio-card rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100"
-                    data-title="SmarTask To-do List"
-                    data-description="A modern to-do list application designed to help users manage their tasks efficiently. Features include task categorization, due dates, priority levels, and real-time updates."
-                    data-tech="Flutter, Dart, MySql, Laravel">
+                    data-title="Geometry Calculator"
+                    data-description="A modern geometry calculator website designed to help users easily compute various geometric properties, such as area, perimeter, volume, and surface area for different 2D and 3D shapes. With a clean and user-friendly interface, this tool provides instant results, making it useful for students, teachers, engineers, and anyone needing precise geometric calculations."
+                    data-tech="HTML, CSS, JavaScript">
                     <div class="portfolio-card-inner">
-                        <img src="assets/images/smartask.png" alt="SmarTask To-do List"
+                        <img src="assets/images/kalkulator.png" alt="Geometry Calculator"
                             class="w-full h-56 object-cover">
                         <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">SmarTask To-do List</h3>
-                            <p class="text-secondary">A modern to-do list app built with Flutter for efficient task
-                                management.</p>
+                            <h3 class="text-xl font-bold mb-2">Geometry Calculator</h3>
+                            <p class="text-secondary">A web-based geometry calculator for quick and accurate shape
+                                calculations.</p>
                         </div>
                     </div>
                 </div>
                 <div class="portfolio-card rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200"
                     data-title="School Dashboard Admin"
                     data-description="A comprehensive school management system with features for attendance tracking, grade management, and administrative tasks. Built with modern technologies for optimal performance."
-                    data-tech="Laravel, MySQL, Tailwind CSS, Node.js">
+                    data-tech="Laravel, MySQL, Tailwind CSS">
                     <div class="portfolio-card-inner">
                         <img src="assets/images/dashboard.png" alt="School Dashboard Admin"
                             class="w-full h-56 object-cover">
@@ -174,15 +173,46 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="400">
-                <a href="#"
-                    class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-lg shadow-md hover:bg-gradient-to-br transition duration-300">
-                    See More
-                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </a>
+                <div class="portfolio-card rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="300"
+                    data-title="Auditoria Music Website"
+                    data-description="Auditoria is a web-based music platform that offers music courses, instrument rentals, and custom songwriting services. It helps users learn, practice, and create music with ease through its simple and user-friendly interface."
+                    data-tech="React, JavaScript, Tailwind CSS">
+                    <div class="portfolio-card-inner">
+                        <img src="assets/images/auditoria.png" alt="Auditoria Music Website"
+                            class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Auditoria Music Website</h3>
+                            <p class="text-secondary">A comprehensive music platform offering courses, instrument
+                                rentals, and custom songwriting services.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="300"
+                    data-title="Eiger Apps"
+                    data-description="Eiger E-Commerce is a lightweight mobile application that showcases Eiger products with essential e-commerce features. Built with a local SQLite database, it allows users to browse products, manage a shopping cart, and simulate purchases without requiring an internet connection. This app is ideal for demonstrating offline e-commerce functionality in a practical and efficient way."
+                    data-tech="Flutter, Dart, Sqlite">
+                    <div class="portfolio-card-inner">
+                        <img src="assets/images/eiger.png" alt="Eiger Apps" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Eiger Apps</h3>
+                            <p class="text-secondary">A simple e-commerce app for Eiger products powered by a local
+                                SQLite database.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="300"
+                    data-title="Premier League Apps"
+                    data-description="The Premier League App provides club information with real-time data from TheSportsDB API and saves it in a local SQLite database for offline access. It offers a simple and reliable way for fans to explore Premier League clubs anytime."
+                    data-tech="Flutter, Dart, Sqlite">
+                    <div class="portfolio-card-inner">
+                        <img src="assets/images/premier.png" alt="Eiger Apps" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Premier League Apps</h3>
+                            <p class="text-secondary">A Premier League app that provides club information by fetching
+                                live data from TheSportsDB API with local storage using SQLite.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -192,7 +222,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 px-4 sm:px-6 lg:px-8">
                 <div class="certificate-card rounded-lg shadow-lg overflow-hidden" data-aos="fade-up">
                     <div class="certificate-card-inner">
-                        <img src="assets/images/dicoding.png" alt="Certificate 1"
+                        <img src="assets/images/dicoding-web.png" alt="Certificate 1"
                             class="w-full h-56 md:object-cover object-full">
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2">Fundamental Web Development</h3>
@@ -222,7 +252,7 @@
                 </div>
                 <div class="certificate-card rounded-lg shadow-lg overflow-hidden" data-aos="fade-up">
                     <div class="certificate-card-inner">
-                        <img src="assets/images/udemy.png" alt="Certificate 4"
+                        <img src="assets/images/udemy-laravel.png" alt="Certificate 4"
                             class="w-full h-56 md:object-cover object-full">
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2">Laravel Essentials: User Role & Permissions with Spatie
@@ -232,15 +262,29 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="500">
-                <a href="#"
-                    class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-lg shadow-md hover:bg-gradient-to-br transition duration-300">
-                    See More
-                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </a>
+                <div class="certificate-card rounded-lg shadow-lg overflow-hidden" data-aos="fade-up">
+                    <div class="certificate-card-inner">
+                        <img src="assets/images/dicoding-java.png" alt="Certificate 5"
+                            class="w-full h-56 md:object-cover object-full">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Introduction to Java</h3>
+                            <p class="text-secondary">An introductory course on Java programming covering fundamental
+                                concepts, syntax, and basic object-oriented principles.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="certificate-card rounded-lg shadow-lg overflow-hidden" data-aos="fade-up">
+                    <div class="certificate-card-inner">
+                        <img src="assets/images/udemy-ai.png" alt="Certificate 6"
+                            class="w-full h-56 md:object-cover object-full">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">AI Engineer Explorer
+                            </h3>
+                            <p class="text-secondary">An exploratory program on Artificial Intelligence introducing core
+                                concepts, tools, and applications in AI engineering.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
